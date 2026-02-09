@@ -2,6 +2,7 @@
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
   "/about/page": "/about",
+  "/api/reservation/route": "/api/reservation",
   "/favicon.ico/route": "/favicon.ico",
   "/menu/page": "/menu",
   "/page": "/"

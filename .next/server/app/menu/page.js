@@ -2,7 +2,7 @@ var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/menu/page.j
 R.c("server/chunks/ssr/[root-of-the-server]__57126fc4._.js")
 R.c("server/chunks/ssr/OneDrive_Desktop_Divine Kitchen_05b569c6._.js")
 R.c("server/chunks/ssr/OneDrive_Desktop_Divine Kitchen_a23db801._.js")
-R.c("server/chunks/ssr/[root-of-the-server]__115b3cd6._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__5e9017c3._.js")
 R.c("server/chunks/ssr/[root-of-the-server]__285712e3._.js")
 R.c("server/chunks/ssr/7dee8_next_dist_d8d4cf1b._.js")
 R.c("server/chunks/ssr/OneDrive_Desktop_Divine Kitchen_src_app_88cf4e3b._.js")

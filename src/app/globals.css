@@ -218,3 +218,263 @@ html {
     transform: none;
   }
 }
+
+/* ============================================================
+   n8n Chat Widget — Divine Kitchen theme overrides
+   ============================================================
+   Maps the n8n chat CSS custom properties to Divine Kitchen
+   design tokens. Follows patterns from:
+   - STYLE_GUIDE.md   (Section 2: Color, Section 3: Typography,
+                        Section 4: Spacing, Section 8: Components)
+   - COMPONENT_SPECS.md (Section 12: Cart Indicator for floating
+                          button, Section 15: Input Field,
+                          Section 16: Modal / Drawer)
+   - design-tokens.json (shadows, radii, transitions)
+   ============================================================ */
+
+:root {
+  /* ---- Color mapping (from design-tokens.json semantic tokens) ---- */
+  --chat--color--primary: #E8890C;            /* accent-primary: saffron-500 */
+  --chat--color--secondary: #FFF8F0;          /* bg-primary: cream-100 */
+  --chat--color--primary-shade-50: #FEECC8;   /* accent-secondary: saffron-100 */
+  --chat--color--primary-shade-100: #FDD68B;  /* saffron-200 */
+  --chat--color-dark: #2D2D2D;                /* text-primary: charcoal-700 */
+  --chat--color-light: #FFF8F0;               /* bg-primary: cream-100 */
+
+  /* ---- Dimensions ---- */
+  --chat--window--width: 400px;
+  --chat--window--height: 580px;
+  --chat--window--z-index: 450;
+
+  /* ---- Messages ---- */
+  /* Bot = white surface (like cards on cream), User = saffron (like CTA buttons) */
+  --chat--message--bot--background: #FFFFFF;  /* bg-surface: white — cards/surfaces */
+  --chat--message--user--background: #E8890C; /* accent-primary: saffron-500 */
+  --chat--message--user--color: #FFFFFF;      /* white on saffron */
+  --chat--message--font-size: 1rem;           /* text-base: 16px */
+
+  /* ---- Header ---- */
+  /* bg-inverse: charcoal-800 — same as Footer and CTA banner */
+  --chat--header--background: #1A1A1A;        /* bg-inverse: charcoal-800 */
+  --chat--header--color: #FFFDF9;             /* text-inverse: cream-50 */
+
+  /* ---- Toggle button ---- */
+  /* Saffron like every other CTA on the site (Reserve a Table, etc.) */
+  --chat--toggle--background: #E8890C;        /* accent-primary: saffron-500 */
+  --chat--toggle--hover--background: #CC6907; /* accent-primaryHover: saffron-600 */
+  --chat--toggle--active--background: #A84B0A;/* saffron-700 */
+  --chat--toggle--color: #FFFFFF;             /* white icon */
+  --chat--toggle--size: 56px;
+
+  /* ---- Input ---- */
+  --chat--textarea--background: #FFFFFF;      /* bg-surface: white */
+  --chat--textarea--height: 52px;
+
+  /* ---- Send button ---- */
+  --chat--button--background: #E8890C;        /* accent-primary: saffron-500 */
+  --chat--button--hover--background: #CC6907; /* accent-primaryHover: saffron-600 */
+  --chat--button--color: #FFFFFF;
+  --chat--button--padding: 0.75rem;
+}
+
+/* ---- Chat window container ---- */
+/* Matches ReservationModal: bg-white, rounded-2xl, shadow-dramatic */
+.n8n-chat .chat-window {
+  border-radius: 1.5rem;                      /* rounded-2xl — same as modal */
+  box-shadow: 0 24px 64px rgba(45, 45, 45, 0.16); /* shadow-dramatic — same as modal */
+  border: 1px solid #E8E8E8;                  /* border-default: charcoal-100 */
+  overflow: hidden;
+  font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* ---- Header ---- */
+/* bg-inverse (charcoal-800) — matches Footer and CTA banner sections */
+.n8n-chat .chat-header {
+  padding: 1.25rem 1.5rem;
+  font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Title uses heading serif font, like "Divine Kitchen" in the footer */
+.n8n-chat .chat-header .chat-header-title,
+.n8n-chat .chat-header span:first-child {
+  font-family: 'DM Serif Display', 'Georgia', serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: #FFFDF9;                             /* text-inverse: cream-50 */
+}
+
+/* Subtitle matches footer description: cream-50/70 */
+.n8n-chat .chat-header .chat-header-subtitle,
+.n8n-chat .chat-header span:last-child {
+  font-size: 0.875rem;
+  color: rgba(255, 253, 249, 0.7);            /* cream-50 at 70% — matches footer text */
+}
+
+/* ---- Messages ---- */
+.n8n-chat .chat-message {
+  font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+  line-height: 1.6;                           /* leading-normal */
+}
+
+.n8n-chat .chat-message-bot .chat-message-bubble {
+  border-radius: 0.75rem 0.75rem 0.75rem 0.25rem;
+  color: #2D2D2D;                             /* text-primary: charcoal-700 */
+  border: 1px solid #E8E8E8;                  /* border-default: charcoal-100 */
+  box-shadow: 0 1px 3px rgba(45, 45, 45, 0.06),
+              0 1px 2px rgba(45, 45, 45, 0.04); /* shadow-sm — like card rest state */
+}
+
+.n8n-chat .chat-message-user .chat-message-bubble {
+  border-radius: 0.75rem 0.75rem 0.25rem 0.75rem;
+}
+
+/* ---- Input area ---- */
+/* Matches ReservationModal: bg-white, border-charcoal-100, rounded-lg, saffron focus */
+.n8n-chat .chat-input {
+  border-top: 1px solid #E8E8E8;              /* border-default: charcoal-100 */
+  padding: 0.75rem 1rem;
+  background: #FFFFFF;                        /* bg-surface: white */
+}
+
+.n8n-chat .chat-input textarea,
+.n8n-chat .chat-input input {
+  font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+  font-size: 1rem;                            /* text-base */
+  border-radius: 0.75rem;                     /* rounded-lg — matches site inputs */
+  border: 1px solid #E8E8E8;                  /* border-default: charcoal-100 */
+  padding: 0.75rem 1rem;
+  color: #2D2D2D;                             /* text-primary: charcoal-700 */
+  transition: border-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.n8n-chat .chat-input textarea::placeholder,
+.n8n-chat .chat-input input::placeholder {
+  color: #A3A3A3;                             /* charcoal-300: text-tertiary */
+}
+
+.n8n-chat .chat-input textarea:focus,
+.n8n-chat .chat-input input:focus {
+  border-color: #F5A623;                      /* saffron-400: border-focus */
+  box-shadow: 0 0 20px rgba(232, 137, 12, 0.25); /* shadow-glow */
+  outline: none;
+}
+
+/* ---- Send button ---- */
+/* Matches site's rounded-lg buttons */
+.n8n-chat .chat-input button[type="submit"],
+.n8n-chat .chat-input .chat-send-button {
+  border-radius: 0.75rem;                     /* rounded-lg — matches site buttons */
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  min-width: 44px;                            /* minimum touch target per a11y */
+  min-height: 44px;
+}
+
+.n8n-chat .chat-input button[type="submit"]:hover,
+.n8n-chat .chat-input .chat-send-button:hover {
+  transform: translateY(-1px);                /* subtle lift on hover */
+}
+
+.n8n-chat .chat-input button[type="submit"]:active,
+.n8n-chat .chat-input .chat-send-button:active {
+  transform: translateY(0);                   /* press returns to rest */
+}
+
+/* ---- Toggle button (floating bubble) ---- */
+/* Saffron CTA — same pattern as "Reserve a Table" button */
+.n8n-chat .chat-toggle {
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(45, 45, 45, 0.08),
+              0 2px 4px rgba(45, 45, 45, 0.04); /* shadow-md — card hover level */
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.n8n-chat .chat-toggle:hover {
+  transform: translateY(-2px);                /* hover lift — same as site buttons */
+  box-shadow: 0 12px 32px rgba(45, 45, 45, 0.12),
+              0 4px 8px rgba(45, 45, 45, 0.06); /* shadow-lg on hover */
+}
+
+.n8n-chat .chat-toggle:active {
+  transform: translateY(0);                   /* press returns to rest — same as site buttons */
+}
+
+/* ---- "New Conversation" / "Get Started" button ---- */
+/* Matches "Reserve a Table" button: rounded-lg, saffron-500, semibold */
+.n8n-chat .chat-new-conversation-button,
+.n8n-chat .chat-get-started-button,
+.n8n-chat button.new-conversation {
+  font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+  font-weight: 600;
+  font-size: 0.875rem;
+  border-radius: 0.75rem;                     /* rounded-lg — matches site buttons */
+  padding: 0.75rem 1.5rem;                    /* space-3, space-6 */
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 150ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(45, 45, 45, 0.06),
+              0 1px 2px rgba(45, 45, 45, 0.04); /* shadow-sm */
+  min-height: 44px;                           /* touch target */
+}
+
+.n8n-chat .chat-new-conversation-button:hover,
+.n8n-chat .chat-get-started-button:hover,
+.n8n-chat button.new-conversation:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(45, 45, 45, 0.08),
+              0 2px 4px rgba(45, 45, 45, 0.04); /* shadow-md on hover */
+}
+
+/* ---- Chat body / messages area ---- */
+/* bg-primary: cream-100 — the warm page background, not white */
+.n8n-chat .chat-messages-list,
+.n8n-chat .chat-body {
+  background-color: #FFF8F0;                  /* bg-primary: cream-100 */
+}
+
+/* ---- Footer area ---- */
+.n8n-chat .chat-footer {
+  font-family: 'DM Sans', 'Helvetica Neue', sans-serif;
+  font-size: 0.75rem;                         /* text-xs */
+  color: #A3A3A3;                             /* charcoal-300 */
+}
+
+/* ---- Scrollbar styling for the messages area ---- */
+.n8n-chat .chat-messages-list::-webkit-scrollbar,
+.n8n-chat .chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.n8n-chat .chat-messages-list::-webkit-scrollbar-track,
+.n8n-chat .chat-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.n8n-chat .chat-messages-list::-webkit-scrollbar-thumb,
+.n8n-chat .chat-body::-webkit-scrollbar-thumb {
+  background-color: #D1D1D1;                  /* charcoal-200 */
+  border-radius: 9999px;                      /* radius-full */
+}
+
+.n8n-chat .chat-messages-list::-webkit-scrollbar-thumb:hover,
+.n8n-chat .chat-body::-webkit-scrollbar-thumb:hover {
+  background-color: #A3A3A3;                  /* charcoal-300 */
+}
+
+/* ---- Reduced motion ---- */
+@media (prefers-reduced-motion: reduce) {
+  .n8n-chat .chat-toggle,
+  .n8n-chat .chat-toggle:hover,
+  .n8n-chat .chat-input button[type="submit"],
+  .n8n-chat .chat-input .chat-send-button,
+  .n8n-chat .chat-new-conversation-button,
+  .n8n-chat .chat-get-started-button,
+  .n8n-chat button.new-conversation {
+    transition: none;
+    transform: none;
+  }
+}

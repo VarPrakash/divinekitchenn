@@ -13,22 +13,62 @@ export default function ReservationModal({ open, onClose }: ReservationModalProp
     email: "",
     phone: "",
     partySize: "",
-    date: "",
-    time: "",
+    dateTime: "",
   });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   if (!open) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/reservation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          partySize: form.partySize,
+          dateTime: form.dateTime,
+        }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      setStatus("success");
+    } catch (err) {
+      setErrorMsg(err instanceof Error ? err.message : "Something went wrong");
+      setStatus("error");
+    }
   };
 
   const handleClose = () => {
-    setSubmitted(false);
-    setForm({ name: "", email: "", phone: "", partySize: "", date: "", time: "" });
+    setStatus("idle");
+    setErrorMsg("");
+    setForm({ name: "", email: "", phone: "", partySize: "", dateTime: "" });
     onClose();
+  };
+
+  // Format the dateTime for display in success state
+  const formatDateTime = (dt: string) => {
+    if (!dt) return "";
+    const date = new Date(dt);
+    return date.toLocaleString("en-US", {
+      weekday: "long",
+      month: "long",
+      day: "numeric",
+      year: "numeric",
+      hour: "numeric",
+      minute: "2-digit",
+    });
   };
 
   return (
@@ -53,7 +93,7 @@ export default function ReservationModal({ open, onClose }: ReservationModalProp
           </svg>
         </button>
 
-        {submitted ? (
+        {status === "success" ? (
           /* ── Success state ── */
           <div className="text-center py-6">
             <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-olive-500/10">
@@ -68,8 +108,7 @@ export default function ReservationModal({ open, onClose }: ReservationModalProp
               Thank you, <span className="font-semibold text-charcoal-700">{form.name}</span>.
               We&apos;ve reserved a table for{" "}
               <span className="font-semibold text-charcoal-700">{form.partySize}</span> on{" "}
-              <span className="font-semibold text-charcoal-700">{form.date}</span> at{" "}
-              <span className="font-semibold text-charcoal-700">{form.time}</span>.
+              <span className="font-semibold text-charcoal-700">{formatDateTime(form.dateTime)}</span>.
             </p>
             <p className="mt-2 font-body text-sm text-charcoal-300">
               A confirmation will be sent to{" "}
@@ -166,39 +205,31 @@ export default function ReservationModal({ open, onClose }: ReservationModalProp
                 </select>
               </div>
 
-              {/* Date & Time — side by side */}
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="mb-1.5 block font-body text-sm font-medium text-charcoal-500">
-                    Date
-                  </label>
-                  <input
-                    type="date"
-                    required
-                    value={form.date}
-                    onChange={(e) => setForm({ ...form, date: e.target.value })}
-                    className="w-full rounded-lg border border-charcoal-100 bg-white px-4 py-2.5 font-body text-base text-charcoal-700 transition-all focus:border-saffron-400 focus:shadow-glow focus:outline-none"
-                  />
-                </div>
-                <div>
-                  <label className="mb-1.5 block font-body text-sm font-medium text-charcoal-500">
-                    Time
-                  </label>
-                  <input
-                    type="time"
-                    required
-                    value={form.time}
-                    onChange={(e) => setForm({ ...form, time: e.target.value })}
-                    className="w-full rounded-lg border border-charcoal-100 bg-white px-4 py-2.5 font-body text-base text-charcoal-700 transition-all focus:border-saffron-400 focus:shadow-glow focus:outline-none"
-                  />
-                </div>
+              {/* Date & Time */}
+              <div>
+                <label className="mb-1.5 block font-body text-sm font-medium text-charcoal-500">
+                  Date &amp; Time
+                </label>
+                <input
+                  type="datetime-local"
+                  required
+                  value={form.dateTime}
+                  onChange={(e) => setForm({ ...form, dateTime: e.target.value })}
+                  className="w-full rounded-lg border border-charcoal-100 bg-white px-4 py-2.5 font-body text-base text-charcoal-700 transition-all focus:border-saffron-400 focus:shadow-glow focus:outline-none"
+                />
               </div>
+
+              {/* Error message */}
+              {status === "error" && (
+                <p className="font-body text-sm text-tomato-500">{errorMsg}</p>
+              )}
 
               <button
                 type="submit"
-                className="w-full cursor-pointer rounded-lg bg-saffron-500 py-3 font-body text-base font-semibold text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-saffron-600 hover:shadow-card active:translate-y-0"
+                disabled={status === "loading"}
+                className="w-full cursor-pointer rounded-lg bg-saffron-500 py-3 font-body text-base font-semibold text-white shadow-soft transition-all hover:-translate-y-0.5 hover:bg-saffron-600 hover:shadow-card active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0"
               >
-                Confirm Reservation
+                {status === "loading" ? "Reserving..." : "Confirm Reservation"}
               </button>
             </form>
           </>

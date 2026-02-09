@@ -47,6 +47,12 @@
       "namedRegex": "^/about(?:/)?$"
     },
     {
+      "page": "/api/reservation",
+      "regex": "^/api/reservation(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/reservation(?:/)?$"
+    },
+    {
       "page": "/favicon.ico",
       "regex": "^/favicon\\.ico(?:/)?$",
       "routeKeys": {},

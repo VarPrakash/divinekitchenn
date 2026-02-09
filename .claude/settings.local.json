@@ -11,7 +11,13 @@
       "Bash(PUBLIC_DIR=public python:*)",
       "Bash(del \"C:\\\\Users\\\\chennupati\\\\OneDrive\\\\Desktop\\\\Divine Kitchen\\\\public\\\\truffle-burrata.webp\")",
       "Skill(image-optimize)",
-      "Bash(PUBLIC_DIR=public/images python .claude/skills/image-optimize/scripts/optimize.py:*)"
+      "Bash(PUBLIC_DIR=public/images python .claude/skills/image-optimize/scripts/optimize.py:*)",
+      "WebFetch(domain:www.npmjs.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:docs.n8n.io)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:cdn.jsdelivr.net)",
+      "Bash(npm install:*)"
     ]
   }
 }

@@ -63,13 +63,7 @@ self.__SERVER_FILES_MANIFEST={
           "search": ""
         }
       ],
-      "remotePatterns": [
-        {
-          "protocol": "https",
-          "hostname": "images.pexels.com",
-          "pathname": "/photos/**"
-        }
-      ],
+      "remotePatterns": [],
       "qualities": [
         75
       ],

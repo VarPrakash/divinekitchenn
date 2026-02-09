@@ -1,3 +1,43 @@
-[00:00:45.152] Server  LOG     ✓ Ready in 37.2s
-[00:00:48.209] Server  LOG     ○ Compiling / ...
-[00:03:40.256] Browser WARN    Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior="smooth"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior
+[00:01:24.325] Server  LOG     ✓ Finished writing to filesystem cache in 11.3s
+[00:01:26.796] Server  LOG     ✓ Ready in 77.9s
+[00:01:30.300] Server  LOG     ○ Compiling / ...
+[00:06:28.668] Server  LOG     ✓ Compiled in 7.1s
+[00:06:51.963] Server  LOG     ✓ Compiled in 19.1s
+[00:07:00.408] Browser WARN    Feature flags __VUE_OPTIONS_API__, __VUE_PROD_DEVTOOLS__, __VUE_PROD_HYDRATION_MISMATCH_DETAILS__ are not explicitly defined. You are running the esm-bundler build of Vue, which expects these compile-time feature flags to be globally injected via the bundler config in order to get better tree-shaking in the production bundle.
+
+For more details, see https://link.vuejs.org/feature-flags.
+[00:10:20.944] Server  LOG     ✓ Compiled in 834ms
+[00:19:47.962] Server  LOG     ✓ Compiled in 1595ms
+[00:20:01.381] Server  LOG     ✓ Compiled in 380ms
+[00:21:00.706] Server  LOG     ✓ Compiled in 594ms
+[00:23:49.701] Browser WARN    Feature flags __VUE_OPTIONS_API__, __VUE_PROD_DEVTOOLS__, __VUE_PROD_HYDRATION_MISMATCH_DETAILS__ are not explicitly defined. You are running the esm-bundler build of Vue, which expects these compile-time feature flags to be globally injected via the bundler config in order to get better tree-shaking in the production bundle.
+
+For more details, see https://link.vuejs.org/feature-flags.
+[00:26:28.431] Server  LOG     ✓ Compiled in 555ms
+[00:26:58.188] Server  LOG     ✓ Compiled in 708ms
+[00:27:12.253] Server  LOG     ✓ Compiled in 638ms
+[00:27:20.803] Server  LOG     ✓ Compiled in 998ms
+[00:27:33.753] Server  LOG     ✓ Compiled in 760ms
+[00:27:43.472] Server  LOG     ✓ Compiled in 640ms
+[00:27:53.911] Server  LOG     ✓ Compiled in 464ms
+[00:28:29.598] Server  LOG     ✓ Finished writing to filesystem cache in 10.6s
+[00:33:38.309] Server  LOG     ✓ Compiled in 560ms
+[00:33:47.381] Server  LOG     ✓ Compiled in 400ms
+[00:34:00.411] Server  LOG     ✓ Compiled in 546ms
+[00:34:12.514] Server  LOG     ✓ Compiled in 431ms
+[00:34:27.978] Server  LOG     ✓ Compiled in 338ms
+[00:59:13.302] Browser WARN    Feature flags __VUE_OPTIONS_API__, __VUE_PROD_DEVTOOLS__, __VUE_PROD_HYDRATION_MISMATCH_DETAILS__ are not explicitly defined. You are running the esm-bundler build of Vue, which expects these compile-time feature flags to be globally injected via the bundler config in order to get better tree-shaking in the production bundle.
+
+For more details, see https://link.vuejs.org/feature-flags.
+[01:22:53.292] Server  LOG     ✓ Compiled in 4.9s
+[01:23:14.457] Server  LOG     ✓ Compiled in 707ms
+[01:28:31.349] Server  LOG     ○ Compiling /api/reservation ...
+[01:30:34.644] Server  LOG     ✓ Compiled in 289ms
+[01:30:41.617] Server  LOG     ✓ Compiled in 230ms
+[01:30:48.742] Server  LOG     ✓ Compiled in 172ms
+[01:30:59.295] Server  LOG     ✓ Compiled in 191ms
+[01:31:09.435] Server  LOG     ✓ Compiled in 273ms
+[01:39:53.582] Server  ERROR   Webhook error: status=404 body={"code":404,"message":"The requested webhook \"make-reservation\" is not registered.","hint":"Click the 'Execute workflow' button on the canvas, then try again. (In test mode, the webhook only works for one call after you click this button)"}
+[01:44:50.548] Server  ERROR   Reservation API error: TypeError: fetch failed
+[01:45:40.570] Server  ERROR   Webhook error: status=404 body={"code":404,"message":"The requested webhook \"make-reservation\" is not registered.","hint":"Click the 'Execute workflow' button on the canvas, then try again. (In test mode, the webhook only works for one call after you click this button)"}
+[01:46:46.083] Server  ERROR   Webhook error: status=404 body={"code":404,"message":"The requested webhook \"make-reservation\" is not registered.","hint":"Click the 'Execute workflow' button on the canvas, then try again. (In test mode, the webhook only works for one call after you click this button)"}
