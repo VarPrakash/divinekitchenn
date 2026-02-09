@@ -1,0 +1,11 @@
+var R=require("../../chunks/ssr/[turbopack]_runtime.js")("server/app/_global-error/page.js")
+R.c("server/chunks/ssr/[root-of-the-server]__7ba88570._.js")
+R.c("server/chunks/ssr/OneDrive_Desktop_Divine Kitchen_05b569c6._.js")
+R.c("server/chunks/ssr/7dee8_next_dist_7c0cd81e._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__c5a81213._.js")
+R.c("server/chunks/ssr/[root-of-the-server]__285712e3._.js")
+R.c("server/chunks/ssr/7dee8_next_dist_d8d4cf1b._.js")
+R.c("server/chunks/ssr/OneDrive_Desktop_Divine Kitchen_src_app_88cf4e3b._.js")
+R.c("server/chunks/ssr/b1735_Divine Kitchen__next-internal_server_app__global-error_page_actions_62b48c9d.js")
+R.m(61995)
+module.exports=R.m(61995).exports

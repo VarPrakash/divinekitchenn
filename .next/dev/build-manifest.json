@@ -1,0 +1,25 @@
+{
+  "pages": {
+    "/_app": []
+  },
+  "devFiles": [],
+  "polyfillFiles": [
+    "static/chunks/7dee8_next_dist_build_polyfills_polyfill-nomodule.js"
+  ],
+  "lowPriorityFiles": [
+    "static/development/_ssgManifest.js",
+    "static/development/_buildManifest.js"
+  ],
+  "rootMainFiles": [
+    "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_07b7871d._.js",
+    "static/chunks/7dee8_next_dist_compiled_react-dom_0b6cb4b5._.js",
+    "static/chunks/7dee8_next_dist_compiled_react-server-dom-turbopack_42dc1562._.js",
+    "static/chunks/7dee8_next_dist_compiled_next-devtools_index_6ab94751.js",
+    "static/chunks/7dee8_next_dist_compiled_14b9a663._.js",
+    "static/chunks/7dee8_next_dist_client_5043038a._.js",
+    "static/chunks/7dee8_next_dist_80867431._.js",
+    "static/chunks/7dee8_@swc_helpers_cjs_c3ed47b2._.js",
+    "static/chunks/OneDrive_Desktop_Divine Kitchen_a0ff3932._.js",
+    "static/chunks/turbopack-OneDrive_Desktop_Divine Kitchen_338445ed._.js"
+  ]
+}

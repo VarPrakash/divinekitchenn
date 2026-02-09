@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Divine Kitchen — Design Tokens
+   Version 1.0.0
+
+   These CSS custom properties are the single source of truth for all visual
+   decisions across the Divine Kitchen platform. Import this file at the root
+   of any implementation.
+
+   Font imports (add to <head> or @import):
+   https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Caveat:wght@400;700&family=JetBrains+Mono:wght@400;500&display=swap
+   ========================================================================== */
+
+:root {
+  /* ======================================================================
+     PRIMITIVE COLORS — Raw palette, never use directly in components
+     ====================================================================== */
+
+  /* Saffron — The heart of Divine Kitchen's warmth */
+  --color-saffron-50:  #FFF7EB;
+  --color-saffron-100: #FEECC8;
+  --color-saffron-200: #FDD68B;
+  --color-saffron-300: #FCBC4F;
+  --color-saffron-400: #F5A623;
+  --color-saffron-500: #E8890C;
+  --color-saffron-600: #CC6907;
+  --color-saffron-700: #A84B0A;
+  --color-saffron-800: #893B0E;
+  --color-saffron-900: #6F310F;
+
+  /* Cream — Warm, inviting backgrounds */
+  --color-cream-50:  #FFFDF9;
+  --color-cream-100: #FFF8F0;
+  --color-cream-200: #FFF1E0;
+  --color-cream-300: #FFE8CC;
+  --color-cream-400: #FFDDB3;
+  --color-cream-500: #F5D0A0;
+
+  /* Charcoal — Grounded, readable text */
+  --color-charcoal-50:  #F5F5F5;
+  --color-charcoal-100: #E8E8E8;
+  --color-charcoal-200: #D1D1D1;
+  --color-charcoal-300: #A3A3A3;
+  --color-charcoal-400: #737373;
+  --color-charcoal-500: #525252;
+  --color-charcoal-600: #404040;
+  --color-charcoal-700: #2D2D2D;
+  --color-charcoal-800: #1A1A1A;
+  --color-charcoal-900: #0D0D0D;
+
+  /* Accent greens — freshness, success */
+  --color-olive-400: #8B9A46;
+  --color-olive-500: #6B7F2A;
+  --color-olive-600: #556620;
+
+  /* Accent reds — alerts, spice */
+  --color-tomato-400: #E85D4A;
+  --color-tomato-500: #D94432;
+  --color-tomato-600: #B53424;
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+
+  /* ======================================================================
+     SEMANTIC COLORS — Use these in components
+     ====================================================================== */
+
+  /* Backgrounds */
+  --bg-primary:   var(--color-cream-100);
+  --bg-secondary: var(--color-cream-200);
+  --bg-surface:   var(--color-white);
+  --bg-inverse:   var(--color-charcoal-800);
+  --bg-overlay:   rgba(13, 13, 13, 0.6);
+
+  /* Text */
+  --text-primary:   var(--color-charcoal-700);
+  --text-secondary: var(--color-charcoal-400);
+  --text-tertiary:  var(--color-charcoal-300);
+  --text-inverse:   var(--color-cream-50);
+  --text-accent:    var(--color-saffron-500);
+
+  /* Interactive accent */
+  --accent-primary:       var(--color-saffron-500);
+  --accent-primary-hover: var(--color-saffron-600);
+  --accent-secondary:     var(--color-saffron-100);
+  --accent-success:       var(--color-olive-500);
+  --accent-danger:        var(--color-tomato-500);
+  --accent-rating:        var(--color-saffron-400);
+
+  /* Borders */
+  --border-default: var(--color-charcoal-100);
+  --border-subtle:  var(--color-cream-300);
+  --border-focus:   var(--color-saffron-400);
+
+
+  /* ======================================================================
+     TYPOGRAPHY
+     ====================================================================== */
+
+  --font-display: 'Playfair Display', 'Georgia', serif;
+  --font-heading: 'DM Serif Display', 'Georgia', serif;
+  --font-body:    'DM Sans', 'Helvetica Neue', sans-serif;
+  --font-accent:  'Caveat', cursive;
+  --font-mono:    'JetBrains Mono', monospace;
+
+  /* Scale */
+  --text-xs:   0.75rem;    /* 12px */
+  --text-sm:   0.875rem;   /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-md:   1.125rem;   /* 18px */
+  --text-lg:   1.25rem;    /* 20px */
+  --text-xl:   1.5rem;     /* 24px */
+  --text-2xl:  2rem;       /* 32px */
+  --text-3xl:  2.5rem;     /* 40px */
+  --text-4xl:  3.25rem;    /* 52px */
+  --text-5xl:  4rem;       /* 64px */
+
+  /* Weights */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-black:    900;
+
+  /* Line heights */
+  --leading-tight:   1.15;
+  --leading-snug:    1.3;
+  --leading-normal:  1.6;
+  --leading-relaxed: 1.8;
+
+  /* Letter spacing */
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-widest:  0.1em;
+
+
+  /* ======================================================================
+     SPACING — 4px base unit
+     ====================================================================== */
+
+  --space-0:  0;
+  --space-1:  0.25rem;   /* 4px   */
+  --space-2:  0.5rem;    /* 8px   */
+  --space-3:  0.75rem;   /* 12px  */
+  --space-4:  1rem;      /* 16px  */
+  --space-5:  1.25rem;   /* 20px  */
+  --space-6:  1.5rem;    /* 24px  */
+  --space-8:  2rem;      /* 32px  */
+  --space-10: 2.5rem;    /* 40px  */
+  --space-12: 3rem;      /* 48px  */
+  --space-16: 4rem;      /* 64px  */
+  --space-20: 5rem;      /* 80px  */
+  --space-24: 6rem;      /* 96px  */
+  --space-32: 8rem;      /* 128px */
+
+
+  /* ======================================================================
+     BORDER RADIUS
+     ====================================================================== */
+
+  --radius-none: 0;
+  --radius-sm:   0.25rem;  /* 4px  */
+  --radius-md:   0.5rem;   /* 8px  */
+  --radius-lg:   0.75rem;  /* 12px */
+  --radius-xl:   1rem;     /* 16px */
+  --radius-2xl:  1.5rem;   /* 24px */
+  --radius-full: 9999px;
+
+
+  /* ======================================================================
+     SHADOWS
+     ====================================================================== */
+
+  --shadow-sm:    0 1px 3px rgba(45, 45, 45, 0.06),
+                  0 1px 2px rgba(45, 45, 45, 0.04);
+  --shadow-md:    0 4px 12px rgba(45, 45, 45, 0.08),
+                  0 2px 4px rgba(45, 45, 45, 0.04);
+  --shadow-lg:    0 12px 32px rgba(45, 45, 45, 0.12),
+                  0 4px 8px rgba(45, 45, 45, 0.06);
+  --shadow-xl:    0 24px 64px rgba(45, 45, 45, 0.16);
+  --shadow-inner: inset 0 2px 4px rgba(45, 45, 45, 0.06);
+  --shadow-glow:  0 0 20px rgba(232, 137, 12, 0.25);
+
+
+  /* ======================================================================
+     TRANSITIONS
+     ====================================================================== */
+
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-elegant:  cubic-bezier(0.22, 1, 0.36, 1);
+
+  --transition-fast:    150ms var(--ease-standard);
+  --transition-normal:  250ms var(--ease-standard);
+  --transition-slow:    400ms var(--ease-standard);
+  --transition-spring:  500ms var(--ease-spring);
+  --transition-elegant: 600ms var(--ease-elegant);
+
+
+  /* ======================================================================
+     LAYOUT
+     ====================================================================== */
+
+  --max-w-content: 1200px;
+  --max-w-narrow:  720px;
+  --max-w-wide:    1440px;
+
+  --grid-columns:   12;
+  --grid-gutter:    1.5rem;
+  --grid-margin:    1.5rem;
+  --grid-margin-lg: 3rem;
+
+
+  /* ======================================================================
+     Z-INDEX SCALE
+     ====================================================================== */
+
+  --z-base:     0;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+}
+
+
+/* ==========================================================================
+   UTILITY: PREFERS REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast:    0ms;
+    --transition-normal:  0ms;
+    --transition-slow:    0ms;
+    --transition-spring:  0ms;
+    --transition-elegant: 0ms;
+  }
+}

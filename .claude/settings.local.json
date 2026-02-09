@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(npx create-next-app:*)",
+      "Bash(npx next --version)",
+      "WebSearch",
+      "Bash(npx next build:*)",
+      "Bash(pip show:*)",
+      "Bash(pip install:*)",
+      "Bash(PUBLIC_DIR=public python:*)",
+      "Bash(del \"C:\\\\Users\\\\chennupati\\\\OneDrive\\\\Desktop\\\\Divine Kitchen\\\\public\\\\truffle-burrata.webp\")",
+      "Skill(image-optimize)",
+      "Bash(PUBLIC_DIR=public/images python .claude/skills/image-optimize/scripts/optimize.py:*)"
+    ]
+  }
+}
